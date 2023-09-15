@@ -1,0 +1,24 @@
+<section class="todoapp">
+    <header class="header">
+        <form class="container" [formGroup]="taskInput" (ngSubmit)="onSubmit">
+            <h1>My Day</h1>
+            <p>All my tasks in one place</p>
+            <input
+                class="new-todo"
+                placeholder="Type new todo"
+                autofocus
+                type="text"
+                id="task"
+                name="task"
+                formControlName="task"
+                (keypress)="onSend($event)"
+            />
+        </form>
+    </header>
+    <div class="container todoapp-wrapper" *ngIf="!listAlone">
+        <!-- This section should be hidden by default and shown when there are todos -->
+        <app-list></app-list>
+        <!-- This footer should be hidden by default and shown when there are todos -->
+        <app-footer></app-footer>
+    </div>
+</section>
